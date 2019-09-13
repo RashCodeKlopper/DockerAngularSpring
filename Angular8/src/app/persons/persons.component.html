@@ -1,0 +1,8 @@
+<h1>Persons</h1>
+
+<ul *ngIf="persons">
+  <li *ngFor="let person of persons">
+    <p class="first">{{ person.firstName }}</p>
+    <p class="last">{{ person.lastName }}</p>
+  </li>
+</ul>
