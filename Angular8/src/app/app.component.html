@@ -1,4 +1,4 @@
-<header>
+<!--<header>
   <div class="container">
     <a routerLink="/" class="logo">CoolApp</a>
     <nav>
@@ -7,11 +7,57 @@
         <li><a href="#" routerLink="/list">Breweries</a></li>
         <li><a href="#" routerLink="/persons">Persons</a></li>
         <li><a href="#" routerLink="/employees">Employees</a></li>
+        <li><a href="#" routerLink="/customers">Customers</a></li>
       </ul>
     </nav>
   </div>
-</header>
+</header>-->
 
-<div class="container">
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+    <h1>Demo App</h1>
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="'/'"> Home </a>
+      <a mat-button [routerLink]="'/list'"> Breweries </a>
+      <a mat-button [routerLink]="'/persons'"> Persons </a>
+      <a mat-button [routerLink]="'/employees'"> Employees </a>
+      <a mat-button [routerLink]="'/customers'"> Customers </a>
+      <a mat-button [routerLink]="'/addCustomer'"> Add Customer </a>
+      <a mat-button [routerLink]="'/findCustomer'"> Search Customers </a>
+    </div>
+  </mat-toolbar-row>
+
+<!--  <mat-toolbar-row>
+    <span style="font-size: 12px;">Demo App to showcase Angular 8 with Spring Boot</span>
+  </mat-toolbar-row>-->
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'/'"> Home </a>
+      <a mat-list-item [routerLink]="'/list'"> Breweries </a>
+      <a mat-list-item [routerLink]="'/persons'"> Persons </a>
+      <a mat-list-item [routerLink]="'/employees'"> Employees </a>
+      <a mat-list-item [routerLink]="'/customers'"> Customers </a>
+      <a mat-list-item [routerLink]="'/addCustomer'"> Add Customer </a>
+      <a mat-list-item [routerLink]="'/findCustomer'"> Search Customers </a>
+
+      <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!--<div class="container">
   <router-outlet></router-outlet>
-</div>
+</div>-->

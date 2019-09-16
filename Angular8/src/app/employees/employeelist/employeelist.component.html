@@ -1,9 +1,13 @@
+<h3>Employees</h3>
+
 Search: <input id="input" type="text" size="30" pInputText [(ngModel)]="listFilterBy">
 <button pButton type="button" label="Add New" style="margin-right: .25em" (click)="addEmployee()"></button>
+
 <br/><br/>
-<p-panel header="Employee Management System">
+
+<p-panel>
   <div *ngFor='let employee of filteredList'>
-    <app-employee-detail [employee]='employee' (refreshEmployeeList)="refreshList()">
-    </app-employee-detail>
+    <app-employee-detail [employee]='employee' (refreshEmployeeList)="refreshList()"></app-employee-detail>
+    <br/>
   </div>
 </p-panel>

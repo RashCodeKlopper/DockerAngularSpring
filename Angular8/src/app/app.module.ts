@@ -10,6 +10,8 @@ import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule } from '@angular/material';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
@@ -22,6 +24,10 @@ import { EmployeeListComponent } from './employees/employeelist/employeelist.com
 
 import { PersonService } from './services/person.service';
 import { EmployeeService } from './services/employee.service';
+import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
+import { CustomerDetailsComponent } from './customers/customer-details/customer-details.component';
+import { CustomersListComponent } from './customers/customers-list/customers-list.component';
+import { SearchCustomersComponent } from './customers/search-customers/search-customers.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +38,11 @@ import { EmployeeService } from './services/employee.service';
     AddEmployeeComponent,
     EditEmployeeComponent,
     EmployeeDetailComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    AddCustomerComponent,
+    CustomerDetailsComponent,
+    CustomersListComponent,
+    SearchCustomersComponent
   ],
   imports: [
     BrowserModule,
@@ -40,11 +50,18 @@ import { EmployeeService } from './services/employee.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    // PrimeNG Modules
     ButtonModule,
     PanelModule,
     CardModule,
     InputTextModule,
-    DropdownModule
+    DropdownModule,
+    // Angular Material Modules
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [PersonService, EmployeeService],
   bootstrap: [AppComponent]

@@ -8,7 +8,7 @@ import { PersonService } from '../services/person.service';
 })
 export class PersonsComponent implements OnInit {
 
-  baseUrl = 'http://localhost:8080';
+  baseUrl = 'http://localhost:8080/api';
 
   persons: any;
 

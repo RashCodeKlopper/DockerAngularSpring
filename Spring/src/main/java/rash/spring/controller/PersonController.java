@@ -8,26 +8,35 @@ import rash.spring.entity.Person;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
+@RequestMapping("/api")
 public class PersonController {
 
     @Autowired
     PersonRepository personRepository;
 
-    @CrossOrigin
-    @RequestMapping(
+/*    @RequestMapping(
             method = RequestMethod.GET,
-            path = "/persons",
+            path = "api/persons",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )*/
+    @GetMapping(
+            path = "persons",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public List<Person> getAllPersons(){
         return personRepository.findAll();
     }
 
-    @CrossOrigin
-    @RequestMapping(
+/*    @RequestMapping(
             method = RequestMethod.POST,
-            path = "/persons",
+            path = "api/persons",
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE
+    )*/
+    @PostMapping(
+            path = "persons",
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
