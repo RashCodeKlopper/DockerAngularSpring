@@ -8,7 +8,7 @@ mvn clean package
 
 ## Build Angular 8 frontend
 - npm install
-- npm build --prod --aot
+- npm run build --prod --aot
 
 ## Start Docker containers
 docker-compose up

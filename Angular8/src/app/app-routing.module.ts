@@ -7,19 +7,23 @@ import { EmployeeListComponent } from './employees/employeelist/employeelist.com
 import { AddEmployeeComponent } from './employees/addemployee/add-employee.component';
 import { EditEmployeeComponent } from './employees/editemployee/edit-employee.component';
 import { CustomersListComponent } from './customers/customers-list/customers-list.component';
-import {AddCustomerComponent} from './customers/add-customer/add-customer.component';
-import {SearchCustomersComponent} from './customers/search-customers/search-customers.component';
+import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
+import { SearchCustomersComponent } from './customers/search-customers/search-customers.component';
+import { CryptoListComponent } from './cryptos/crypto-list/crypto-list.component';
+import { MaterialDemoComponent } from './material-demo/material-demo.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'list', component: ListComponent },
   { path: 'persons', component: PersonsComponent },
   { path: 'employees', component: EmployeeListComponent },
-  { path: 'addEmployee', component: AddEmployeeComponent },
-  { path: 'editEmployee/:id', component: EditEmployeeComponent },
+  { path: 'add-employee', component: AddEmployeeComponent },
+  { path: 'edit-employee/:id', component: EditEmployeeComponent },
+  { path: 'cryptos', component: CryptoListComponent },
   { path: 'customers', component: CustomersListComponent },
-  { path: 'addCustomer', component: AddCustomerComponent },
-  { path: 'findCustomer', component: SearchCustomersComponent },
+  { path: 'add-customer', component: AddCustomerComponent },
+  { path: 'find-customer', component: SearchCustomersComponent },
+  { path: 'material-demo', component: MaterialDemoComponent },
 ];
 
 @NgModule({
