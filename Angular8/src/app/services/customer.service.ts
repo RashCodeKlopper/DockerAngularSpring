@@ -11,8 +11,16 @@ export class CustomerService {
 
   constructor(private http: HttpClient) { }
 
+  getCustomersList(): Observable<any> {
+    return this.http.get(this.baseUrl);
+  }
+
   getCustomer(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
+  }
+
+  getCustomersByAge(age: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/age/${age}`);
   }
 
   createCustomer(customer: any): Observable<any> {
@@ -25,14 +33,6 @@ export class CustomerService {
 
   deleteCustomer(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`);
-  }
-
-  getCustomersList(): Observable<any> {
-    return this.http.get(this.baseUrl);
-  }
-
-  getCustomersByAge(age: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/age/${age}`);
   }
 
   deleteAll(): Observable<any> {

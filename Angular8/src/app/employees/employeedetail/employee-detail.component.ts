@@ -21,7 +21,7 @@ export class EmployeeDetailComponent {
 
   // Method to edit employee details
   editEmployee() {
-    this.router.navigate(['editEmployee/' + this.employee.id]);
+    this.router.navigate(['edit-employee/' + this.employee.id]);
   }
 
   // Method to delete an employee

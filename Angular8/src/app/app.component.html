@@ -18,19 +18,20 @@
     <button mat-icon-button>
       <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
     </button>
-    <h1>Demo App</h1>
+    <h2>Angular 8</h2>
     <span class="menu-spacer"></span>
     <div>
       <a mat-button [routerLink]="'/'"> Home </a>
       <a mat-button [routerLink]="'/list'"> Breweries </a>
       <a mat-button [routerLink]="'/persons'"> Persons </a>
       <a mat-button [routerLink]="'/employees'"> Employees </a>
+      <a mat-button [routerLink]="'/cryptos'"> Cryptocurrencies </a>
       <a mat-button [routerLink]="'/customers'"> Customers </a>
-      <a mat-button [routerLink]="'/addCustomer'"> Add Customer </a>
-      <a mat-button [routerLink]="'/findCustomer'"> Search Customers </a>
+      <a mat-button [routerLink]="'/add-customer'"> Add Customer </a>
+      <a mat-button [routerLink]="'/find-customer'"> Search Customers </a>
+      <a mat-button [routerLink]="'/material-demo'"> Material Demo </a>
     </div>
   </mat-toolbar-row>
-
 <!--  <mat-toolbar-row>
     <span style="font-size: 12px;">Demo App to showcase Angular 8 with Spring Boot</span>
   </mat-toolbar-row>-->
@@ -43,21 +44,18 @@
       <a mat-list-item [routerLink]="'/list'"> Breweries </a>
       <a mat-list-item [routerLink]="'/persons'"> Persons </a>
       <a mat-list-item [routerLink]="'/employees'"> Employees </a>
+      <a mat-list-item [routerLink]="'/cryptos'"> Cryptocurrencies </a>
       <a mat-list-item [routerLink]="'/customers'"> Customers </a>
-      <a mat-list-item [routerLink]="'/addCustomer'"> Add Customer </a>
-      <a mat-list-item [routerLink]="'/findCustomer'"> Search Customers </a>
+      <a mat-list-item [routerLink]="'/add-customer'"> Add Customer </a>
+      <a mat-list-item [routerLink]="'/find-customer'"> Search Customers </a>
+      <a mat-list-item [routerLink]="'/material-demo'"> Material Demo </a>
 
-      <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+      <a mat-list-item (click)="sidenav.toggle()" href="" >Close</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <div style="height: 88vh;">
-
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-<!--<div class="container">
-  <router-outlet></router-outlet>
-</div>-->

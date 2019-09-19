@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonService } from '../services/person.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-persons',
@@ -8,15 +9,14 @@ import { PersonService } from '../services/person.service';
 })
 export class PersonsComponent implements OnInit {
 
-  baseUrl = 'http://localhost:8080/api';
+  // baseUrl = 'http://localhost:8080/api';
 
-  persons: any;
+  persons: Observable<any>;
 
   constructor(private personService: PersonService) { }
 
   ngOnInit() {
-    this.personService
-      .getPersons(this.baseUrl + '/persons')
+    this.personService.getPersonList()
       .subscribe(
         data => {
           console.log(data);

@@ -9,8 +9,19 @@ import { PanelModule } from 'primeng/panel';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
+import { DataViewModule  } from 'primeng/dataview';
 
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatIconModule,
+  MatSidenavModule,
+  MatListModule,
+  MatTableModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule
+} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +39,9 @@ import { AddCustomerComponent } from './customers/add-customer/add-customer.comp
 import { CustomerDetailsComponent } from './customers/customer-details/customer-details.component';
 import { CustomersListComponent } from './customers/customers-list/customers-list.component';
 import { SearchCustomersComponent } from './customers/search-customers/search-customers.component';
+import { CryptoListComponent } from './cryptos/crypto-list/crypto-list.component';
+import { MaterialDemoComponent } from './material-demo/material-demo.component';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +56,10 @@ import { SearchCustomersComponent } from './customers/search-customers/search-cu
     AddCustomerComponent,
     CustomerDetailsComponent,
     CustomersListComponent,
-    SearchCustomersComponent
+    SearchCustomersComponent,
+    CryptoListComponent,
+    MaterialDemoComponent,
+    DialogBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -56,12 +73,22 @@ import { SearchCustomersComponent } from './customers/search-customers/search-cu
     CardModule,
     InputTextModule,
     DropdownModule,
+    DataViewModule,
     // Angular Material Modules
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    MatIconModule,
+    MatTableModule,
+    MatDialogModule,
+    MatFormFieldModule,
     MatButtonModule,
-    MatIconModule
+    MatInputModule
+  ],
+  // For any component loaded into a dialog, you must include your component class in the list of entryComponents
+  // in your NgModule definition so that the Angular compiler knows to create the ComponentFactory for it!
+  entryComponents: [
+    DialogBoxComponent
   ],
   providers: [PersonService, EmployeeService],
   bootstrap: [AppComponent]

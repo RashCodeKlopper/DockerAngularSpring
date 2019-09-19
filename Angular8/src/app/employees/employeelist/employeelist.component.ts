@@ -44,7 +44,7 @@ export class EmployeeListComponent implements OnInit {
 
   // Method to add an employee to the list
   addEmployee() {
-    this.router.navigate(['addEmployee']);
+    this.router.navigate(['add-employee']);
   }
 
   // Method to refresh the employee list after successful delete
