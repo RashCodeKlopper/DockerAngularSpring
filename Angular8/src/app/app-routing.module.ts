@@ -11,6 +11,7 @@ import { AddCustomerComponent } from './customers/add-customer/add-customer.comp
 import { SearchCustomersComponent } from './customers/search-customers/search-customers.component';
 import { CryptoListComponent } from './cryptos/crypto-list/crypto-list.component';
 import { MaterialDemoComponent } from './material-demo/material-demo.component';
+import {RegisterComponent} from './register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'add-customer', component: AddCustomerComponent },
   { path: 'find-customer', component: SearchCustomersComponent },
   { path: 'material-demo', component: MaterialDemoComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({

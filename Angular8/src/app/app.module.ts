@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularMaterialModule } from './material.module';
 
 import { ButtonModule } from 'primeng/button';
 import { PanelModule } from 'primeng/panel';
@@ -10,18 +11,6 @@ import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { DataViewModule  } from 'primeng/dataview';
-
-import {
-  MatToolbarModule,
-  MatIconModule,
-  MatSidenavModule,
-  MatListModule,
-  MatTableModule,
-  MatDialogModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatButtonModule
-} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -42,6 +31,7 @@ import { SearchCustomersComponent } from './customers/search-customers/search-cu
 import { CryptoListComponent } from './cryptos/crypto-list/crypto-list.component';
 import { MaterialDemoComponent } from './material-demo/material-demo.component';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -59,31 +49,24 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     SearchCustomersComponent,
     CryptoListComponent,
     MaterialDemoComponent,
-    DialogBoxComponent
+    DialogBoxComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
+    AngularMaterialModule,
     // PrimeNG Modules
     ButtonModule,
     PanelModule,
     CardModule,
     InputTextModule,
     DropdownModule,
-    DataViewModule,
-    // Angular Material Modules
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatIconModule,
-    MatTableModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatInputModule
+    DataViewModule
   ],
   // For any component loaded into a dialog, you must include your component class in the list of entryComponents
   // in your NgModule definition so that the Angular compiler knows to create the ComponentFactory for it!
@@ -91,6 +74,7 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     DialogBoxComponent
   ],
   providers: [PersonService, EmployeeService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 {
-  "name": "angular8",
+  "name": "angular8-material",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -22,9 +22,7 @@
     "@angular/platform-browser": "~8.2.4",
     "@angular/platform-browser-dynamic": "~8.2.4",
     "@angular/router": "~8.2.4",
-    "bootstrap": "^4.3.1",
     "hammerjs": "^2.0.8",
-    "primeng": "^8.0.3",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
