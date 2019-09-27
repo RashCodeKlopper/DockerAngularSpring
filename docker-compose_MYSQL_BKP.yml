@@ -1,20 +1,18 @@
 version: '3'
 
 services:
-
   database:
-    image: postgres:latest
+    image: mysql
     container_name: database
     environment:
-      POSTGRES_USER: administrator
-      POSTGRES_PASSWORD: administrator@123
-      POSTGRES_DB: dockerAngularSpringDb
+      MYSQL_ROOT_PASSWORD: root@123
+      MYSQL_DATABASE: dockerAngularSpringDb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user@123
     ports:
-      - 5432:5432
-    restart: always
+      - 3306:3306
     volumes:
      - dockerAngularSpringData:/var/lib/mysql
-     - ./data.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
      - backendNetwork
      
@@ -44,6 +42,7 @@ services:
       - ./Angular8/dist/Angular8/:/usr/share/nginx/html
     networks:
       - frontendNetwork
+    
 
 volumes:
   dockerAngularSpringData:

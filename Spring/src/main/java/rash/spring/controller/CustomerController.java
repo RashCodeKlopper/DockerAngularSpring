@@ -30,9 +30,8 @@ public class CustomerController {
 
   @GetMapping("/customers")
   public ResponseEntity<List<Customer>> getAllCustomers() {
-    List<Customer> customers = new ArrayList<>();
     try {
-      repository.findAll().forEach(customers::add);
+      List<Customer> customers = new ArrayList<>(repository.findAll());
 
       if (customers.isEmpty()) {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -47,18 +46,21 @@ public class CustomerController {
   public ResponseEntity<Customer> getCustomerById(@PathVariable("id") long id) {
     Optional<Customer> customerData = repository.findById(id);
 
-    if (customerData.isPresent()) {
+    /*if (customerData.isPresent()) {
       return new ResponseEntity<>(customerData.get(), HttpStatus.OK);
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
+    }*/
+
+    return customerData.map(customer -> new ResponseEntity<>(customer, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
   }
 
   @PostMapping(value = "/customers")
   public ResponseEntity<Customer> postCustomer(@RequestBody Customer customer) {
     try {
-      Customer _customer = repository.save(new Customer(customer.getName(), customer.getAge()));
-      return new ResponseEntity<>(_customer, HttpStatus.CREATED);
+      /*Customer newCustomer = repository.save(new Customer(customer.getName(), customer.getAge()));
+      return new ResponseEntity<>(newCustomer, HttpStatus.CREATED);*/
+      return new ResponseEntity<>(repository.save(customer), HttpStatus.CREATED);
     } catch (Exception e) {
       return new ResponseEntity<>(null, HttpStatus.EXPECTATION_FAILED);
     }
@@ -103,7 +105,7 @@ public class CustomerController {
   public ResponseEntity<Customer> updateCustomer(@PathVariable("id") long id, @RequestBody Customer customer) {
     Optional<Customer> customerData = repository.findById(id);
 
-    if (customerData.isPresent()) {
+    /*if (customerData.isPresent()) {
       Customer _customer = customerData.get();
       _customer.setName(customer.getName());
       _customer.setAge(customer.getAge());
@@ -111,6 +113,15 @@ public class CustomerController {
       return new ResponseEntity<>(repository.save(_customer), HttpStatus.OK);
     } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
+    }*/
+
+    return customerData
+            .map(updatedCustomer -> {
+              updatedCustomer.setName(customer.getName());
+              updatedCustomer.setAge(customer.getAge());
+              updatedCustomer.setActive(customer.isActive());
+              return new ResponseEntity<>(repository.save(updatedCustomer), HttpStatus.OK);
+            })
+            .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
   }
 }
