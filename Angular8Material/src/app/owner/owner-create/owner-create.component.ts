@@ -62,6 +62,7 @@ export class OwnerCreateComponent implements OnInit {
     };
 
     const apiUrl = 'api/owner';
+
     this.repository.create(apiUrl, owner)
       .subscribe(res => {
           const dialogRef = this.dialog.open(SuccessDialogComponent, this.dialogConfig);

@@ -39,11 +39,11 @@ values
 (3, '2019-05-23 14:57:22', 'Domestic');
 
 CREATE TABLE customer (
-                          id bigserial NOT NULL,
-                          active bool NULL,
-                          age int4 NULL,
-                          "name" varchar(255) NULL,
-                          CONSTRAINT customer_pkey PRIMARY KEY (id)
+    id bigserial NOT NULL,
+    active bool NULL,
+    age int4 NULL,
+    "name" varchar(255) NULL,
+    CONSTRAINT customer_pkey PRIMARY KEY (id)
 );
 
 INSERT INTO customer
@@ -54,10 +54,10 @@ values
 (false, 35, 'Amil Makdoembaks');
 
 CREATE TABLE person (
-                        id serial NOT NULL,
-                        first_name varchar(255) NOT NULL,
-                        last_name varchar(255) NOT NULL,
-                        CONSTRAINT person_pkey PRIMARY KEY (id)
+    id serial NOT NULL,
+    first_name varchar(255) NOT NULL,
+    last_name varchar(255) NOT NULL,
+    CONSTRAINT person_pkey PRIMARY KEY (id)
 );
 
 INSERT INTO person

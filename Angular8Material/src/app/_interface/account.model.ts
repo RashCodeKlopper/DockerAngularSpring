@@ -1,5 +1,5 @@
 export interface Account {
-  id: string;
+  id: number;
   dateCreated: Date;
   accountType: string;
   ownerId?: string;

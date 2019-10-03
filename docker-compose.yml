@@ -41,7 +41,7 @@ services:
       - springapi
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
-      - ./Angular8/dist/Angular8/:/usr/share/nginx/html
+      - ./Angular8Material/dist/Angular8Material/:/usr/share/nginx/html
     networks:
       - frontendNetwork
 

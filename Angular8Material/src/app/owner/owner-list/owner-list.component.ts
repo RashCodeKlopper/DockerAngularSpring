@@ -12,14 +12,14 @@ import { Router } from '@angular/router';
 })
 export class OwnerListComponent implements OnInit, AfterViewInit {
 
-  public displayedColumns = ['name', 'dateOfBirth', 'address', 'details', 'update', 'delete'];
+  public displayedColumns = ['id', 'name', 'dateOfBirth', 'address', 'details', 'update', 'delete'];
   public dataSource = new MatTableDataSource<Owner>();
 
   private owners: Array<Owner> = [
-    {id: '1', name: 'Rashied', address: 'Steentijdsingel 147', dateOfBirth: new Date()},
-    {id: '2', name: 'Aziza', address: 'Odessastraat 16', dateOfBirth: new Date()},
-    {id: '3', name: 'Jasmien', address: 'Broersvest 31 C', dateOfBirth: new Date()},
-    {id: '4', name: 'Arvind', address: 'Tureluurlaan 45', dateOfBirth: new Date()},
+    {id: 1, name: 'Rashied', address: 'Steentijdsingel 147', dateOfBirth: new Date()},
+    {id: 2, name: 'Aziza', address: 'Odessastraat 16', dateOfBirth: new Date()},
+    {id: 3, name: 'Jasmien', address: 'Broersvest 31 C', dateOfBirth: new Date()},
+    {id: 4, name: 'Arvind', address: 'Tureluurlaan 45', dateOfBirth: new Date()},
   ];
 
   @ViewChild(MatSort, {static: false}) sort: MatSort;
@@ -32,9 +32,9 @@ export class OwnerListComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     // Hardcoded list of owners
-    this.dataSource.data = this.owners;
+    // this.dataSource.data = this.owners;
 
-    // this.getAllOwners();
+    this.getAllOwners();
   }
 
   ngAfterViewInit(): void {
@@ -43,7 +43,9 @@ export class OwnerListComponent implements OnInit, AfterViewInit {
   }
 
   public getAllOwners = () => {
-    this.repoService.getData('api/owner')
+    const apiUrl = `owners`;
+
+    this.repoService.getData(apiUrl)
       .subscribe(res => {
         this.dataSource.data = res as Owner[];
         },
@@ -57,8 +59,9 @@ export class OwnerListComponent implements OnInit, AfterViewInit {
   }
 
   public redirectToDetails = (id: string) => {
-    const url = `/owner/details/${id}`;
-    this.router.navigate([url]).then();
+    const navUrl = `owner/details/${id}`;
+
+    this.router.navigate([navUrl]).then();
   }
 
   public redirectToUpdate = (id: string) => {
